@@ -9,10 +9,9 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 
 const Login = () => {
     const [signInWithGoogle] = useSignInWithGoogle(auth);
-    const [email,setEmail]=useState()
-    const [password,setPassword]=useState()
-    const [
-        signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+    const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
       const emailHandaler=(e)=>{
           setEmail(e.target.value)
       }
@@ -24,6 +23,7 @@ const Login = () => {
         event.preventDefault()
         
         signInWithEmailAndPassword(email,password)
+        console.log(email,password)
          
 
 
