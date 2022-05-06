@@ -32,7 +32,10 @@ const Login = () => {
     const formSubmit = (event) => {
         event.preventDefault()
 
+      if(email && password)
+      {
         signInWithEmailAndPassword(email, password)
+      }
 
 
 
@@ -59,7 +62,7 @@ const Login = () => {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                    Log-In
+                    Sign-In
                 </Button>
                 <Link to='/register' className='mx-5'>New Register</Link>
 

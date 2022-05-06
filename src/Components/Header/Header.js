@@ -11,7 +11,7 @@ const Header = () => {
         <Navbar bg="light" expand="lg">
             
             <Container fluid>
-                <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+                <Navbar.Brand href="#">Computer gadegets</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -20,13 +20,16 @@ const Header = () => {
                         navbarScroll
                     >
                         <Nav.Link as={CustomLink} to='/home'>Home</Nav.Link>
-                        {user ? <button className='btn btn-outline-none' onClick={()=>signOut(auth)}>Log-out</button> :<Nav.Link as={CustomLink} to='/logIn'>Log-in</Nav.Link>}
+                        {user ? <>
+                            <button className='btn btn-outline-none' onClick={()=>signOut(auth)}>Log-out</button>
+                            <Nav.Link as={CustomLink} to='/manageitems'>Manage-Items</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/additem'>Add-Item</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/myitems'>My-Items</Nav.Link>
+                        </> :<Nav.Link as={CustomLink} to='/logIn'>Log-in</Nav.Link>}
                         
                         <Nav.Link as={CustomLink} to='/about'>About</Nav.Link>
-                        <Nav.Link as={CustomLink} to='/items'>Items</Nav.Link>
-                        
-                       
-                        
+                        <Nav.Link as={CustomLink} to='/items'>Items</Nav.Link>   
+                        <Nav.Link as={CustomLink} to='/blogs'>Blogs</Nav.Link>   
                     </Nav>
                     <Form className="d-flex">
                         <FormControl

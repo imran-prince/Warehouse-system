@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
 const Register = () => {
     const navigate=useNavigate()
+    const location=useLocation()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [
@@ -29,6 +30,7 @@ const Register = () => {
     {
         navigate('/')
     }
+     
 
     const registerSubmit = (event) => {
         event.preventDefault()
