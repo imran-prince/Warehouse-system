@@ -9,7 +9,7 @@ const Register = () => {
     return (
         <Form onSubmit={formSubmit} className='w-50 m-auto my-3'>
             <h2 className='w-50 m-auto'>New Account Create</h2>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text" placeholder="imran" name='name' />
             </Form.Group>
