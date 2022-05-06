@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { auth } from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import Loading from '../Loading/Loading';
  
 
 
 const Login = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -18,7 +21,14 @@ const Login = () => {
       const passwordHandaler=(e)=>{
           setPassword(e.target.value)
       }
- 
+      if(user)
+      {
+          <Loading></Loading>
+      }
+      const from = location.state?.from?.pathname || "/";
+      if (user) {
+        navigate(from, { replace: true });
+    }
     const formSubmit = (event) => {
         event.preventDefault()
         
@@ -31,6 +41,10 @@ const Login = () => {
     const googleSignIn=()=>{
         signInWithGoogle()
         console.log('hellow googlegit ');
+    }
+    if(user)
+    {
+       alert('login successfullay')
     }
     return (
         <>

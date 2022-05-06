@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -19,14 +20,18 @@ const Register = () => {
     const passwordHandaler=e=>{
         setPassword(e.target.value)
     }
+    if(user)
+    {
+        <Loading></Loading>
+    }
 
     const registerSubmit = (event) => {
         event.preventDefault()
         createUserWithEmailAndPassword(email,password)
     }
     return (
-        <Form onSubmit={registerSubmit} className='w-50 m-auto my-3'>
-            <h2 className='w-50 m-auto'>New Account Create</h2>
+        <Form onSubmit={registerSubmit} className='w-50 m-auto my-3 shadow-lg p-5 rounded-5'>
+            <h3 className='w-50 m-auto'>Create New Account</h3>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text"  placeholder="imran" name='name' />
@@ -43,10 +48,10 @@ const Register = () => {
                 <Form.Control type="password" onBlur={passwordHandaler} placeholder="Password" name='password' />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-                Log-In
+            <Button variant="primary" type="submit" className='mx-2'>
+                Register
             </Button>
-            <Link to='/logIn' className='mx-5'>Log-In</Link>
+             Already have an Account <Link to='/logIn' className='mx-2'>Log-In</Link>
         </Form>
     );
 };
