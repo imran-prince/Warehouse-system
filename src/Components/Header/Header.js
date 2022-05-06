@@ -30,6 +30,7 @@ const Header = () => {
                         <Nav.Link as={CustomLink} to='/about'>About</Nav.Link>
                         <Nav.Link as={CustomLink} to='/items'>Items</Nav.Link>   
                         <Nav.Link as={CustomLink} to='/blogs'>Blogs</Nav.Link>   
+                        <Nav.Link as={CustomLink} to='/contact'>Contact</Nav.Link>   
                     </Nav>
                     <Form className="d-flex">
                         <FormControl
