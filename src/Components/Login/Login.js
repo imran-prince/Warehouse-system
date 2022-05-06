@@ -5,47 +5,44 @@ import { FcGoogle } from "react-icons/fc";
 import { auth } from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
- 
+
 
 
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const [signInWithGoogle] = useSignInWithGoogle(auth);
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
-    const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
-      const emailHandaler=(e)=>{
-          setEmail(e.target.value)
-      }
-      const passwordHandaler=(e)=>{
-          setPassword(e.target.value)
-      }
-      if(user)
-      {
-          <Loading></Loading>
-      }
-      const from = location.state?.from?.pathname || "/";
-      if (user) {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+    if (loading) {
+        <Loading></Loading>
+    }
+    const emailHandaler = (e) => {
+        setEmail(e.target.value)
+    }
+    const passwordHandaler = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const from = location.state?.from?.pathname || "/";
+    if (user) {
         navigate(from, { replace: true });
     }
     const formSubmit = (event) => {
         event.preventDefault()
-        
-        signInWithEmailAndPassword(email,password)
-        console.log(email,password)
-         
+
+        signInWithEmailAndPassword(email, password)
+
+
 
 
     }
-    const googleSignIn=()=>{
+    const googleSignIn = () => {
         signInWithGoogle()
-        console.log('hellow googlegit ');
+
     }
-    if(user)
-    {
-       alert('login successfullay')
-    }
+
     return (
         <>
             <Form onSubmit={formSubmit} className='w-50 m-auto my-3'>
@@ -65,12 +62,12 @@ const Login = () => {
                     Log-In
                 </Button>
                 <Link to='/register' className='mx-5'>New Register</Link>
-                
+
             </Form>
-            <button className='btn' onClick={googleSignIn}>Google sign-In  <FcGoogle/></button>
-            
-            
-            </>
+            <button className='btn' onClick={googleSignIn}>Google sign-In  <FcGoogle /></button>
+
+
+        </>
     );
 };
 

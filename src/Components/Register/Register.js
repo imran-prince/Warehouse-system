@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
 const Register = () => {
+    const navigate=useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [
@@ -20,9 +21,13 @@ const Register = () => {
     const passwordHandaler=e=>{
         setPassword(e.target.value)
     }
-    if(user)
+    if(loading)
     {
         <Loading></Loading>
+    }
+    if(user)
+    {
+        navigate('/')
     }
 
     const registerSubmit = (event) => {
