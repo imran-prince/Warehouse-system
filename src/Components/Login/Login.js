@@ -61,13 +61,14 @@ const Login = () => {
                     <Form.Control type="password" onBlur={passwordHandaler} placeholder="Password" name='password' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className='w-50 m-auto d-block'>
                     Sign-In
                 </Button>
-                <Link to='/register' className='mx-5'>New Register</Link>
+                <Link to='/register' className=''>Create New Account</Link>
 
             </Form>
-            <button className='btn' onClick={googleSignIn}>Google sign-In  <FcGoogle /></button>
+            <h2 className='text-center'>------------- Socila log in ----------</h2>
+            <button className=' btn   shadow-lg  my-5 w-25 m-auto d-block' onClick={googleSignIn}>Google sign-In  <FcGoogle /></button>
 
 
         </>
