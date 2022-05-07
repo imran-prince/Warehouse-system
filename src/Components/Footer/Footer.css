@@ -1,0 +1,45 @@
+.foter{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content:space-around;
+   flex-direction: row-reverse;
+}
+.foot-link a{
+    text-decoration: none;
+    margin: 5px;
+    font-size: 25px;
+    color: red;
+    padding:2px;
+
+}
+.address{
+  display: flex;
+  justify-content: flex-end;
+  line-height:3px;
+}
+@media (max-width:640px) {
+  .foter{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+   
+    
+ 
+}
+.foot-link a{
+  text-decoration: none;
+  margin: 5px;
+  font-size: 10px;
+  color: red;
+  padding:2px;
+
+}
+.foot-info{
+  font-size: 10px;
+}
+  
+}
