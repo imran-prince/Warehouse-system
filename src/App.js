@@ -10,7 +10,7 @@ import Items from './Components/Items/Items';
 import RequreAuth from './Components/RequreAuth/RequreAuth';
 import Blog from './Components/Blog/Blog';
 import Notfound from './Components/Notfound/Notfound';
-import Foter from './Components/Foter/Foter';
+ 
 import Footer from './Components/Footer/Footer';
 function App() {
   return (
