@@ -21,7 +21,7 @@ const ManageInventory = () => {
         console.log(product)
      
         // send data to server
-        fetch('http://localhost:5000/productadd', {
+        fetch('https://computer-gadegest-inventory.herokuapp.com/productadd', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

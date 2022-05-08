@@ -11,7 +11,7 @@ const AllProduct = ({ item }) => {
         const sure=window.confirm('Are you sure want to delet?.');
         if(sure)
         {
-           const url=`http://localhost:5000/product/${id}`
+           const url=`https://computer-gadegest-inventory.herokuapp.com/product/${id}`
            fetch(url,{
                method:"DELETE"
 

@@ -9,7 +9,7 @@ const UpdateProduct = () => {
     const [user] = useAuthState(auth)
     const [product, setProduct] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://computer-gadegest-inventory.herokuapp.com/product/${id}`)
             .then(rs => rs.json())
             .then(data => setProduct(data))
     }, [id])
@@ -25,7 +25,7 @@ const UpdateProduct = () => {
         const updateProduct = { name, price, quantity, img, email, description, suppliyer_name }
         console.log(updateProduct)
         // send data to server
-        const url = `http://localhost:5000/productupdate/${id}`
+        const url = `https://computer-gadegest-inventory.herokuapp.com/productupdate/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {

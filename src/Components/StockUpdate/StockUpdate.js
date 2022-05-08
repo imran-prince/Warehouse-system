@@ -16,7 +16,7 @@ const StockUpdate = () => {
             const quantity = (singleProduct?.quantity)-1
             const updateQuantity = {quantity}
             // send data to server
-            const url =  `http://localhost:5000/productdecrease/${id}`
+            const url =  `https://computer-gadegest-inventory.herokuapp.com/productdecrease/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -37,7 +37,7 @@ const StockUpdate = () => {
             const quantity = (singleProduct?.quantity)+1
             const updateQuantity = {quantity}
             // send data to server
-            const url =  `http://localhost:5000/productdecrease/${id}`
+            const url =  `https://computer-gadegest-inventory.herokuapp.com/productdecrease/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {
