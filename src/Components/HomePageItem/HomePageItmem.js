@@ -1,10 +1,12 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const HomePageItmem = ({items}) => {
-    const {name,img,description,price}=items
- 
- 
+    const {name,img,description,price,quantity,suppliyer_name,_id}=items
+  const navigate =useNavigate()
+  
+   
     return (
         <>
             <Col>
@@ -16,9 +18,15 @@ const HomePageItmem = ({items}) => {
                             Price: $ {price}
                         </Card.Text>
                         <Card.Text>
+                            Quantity:  {quantity}
+                        </Card.Text>
+                        <Card.Text>
+                        suppliyer_name:  {suppliyer_name}
+                        </Card.Text>
+                        <Card.Text>
                             <span style={{ color: 'red' }}>Short Description:</span> <small>{description}</small>
                         </Card.Text>
-                        {/* <Button onClick={() => { navigate(`/checkout/${id}`) }} variant="primary">Check-Out</Button> */}
+                        <Button onClick={() => { navigate(`/inventory/${_id}`) }} variant="primary">Stock Update</Button>
                     </Card.Body>
 
                 </Card>

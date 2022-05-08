@@ -23,7 +23,7 @@ const Header = () => {
                         {user ? <>
                             <button className='btn btn-outline-none' onClick={()=>signOut(auth)}>Log-out</button>
                             <Nav.Link as={CustomLink} to='/manageitems'>Manage-Items</Nav.Link>
-                            <Nav.Link as={CustomLink} to='/additem'>Add-Item</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/manageinventory'>Add-Item</Nav.Link>
                             <Nav.Link as={CustomLink} to='/myitems'>My-Items</Nav.Link>
                         </> :<Nav.Link as={CustomLink} to='/logIn'>Log-in</Nav.Link>}
                         

@@ -12,6 +12,9 @@ import Blog from './Components/Blog/Blog';
 import Notfound from './Components/Notfound/Notfound';
  
 import Footer from './Components/Footer/Footer';
+import StockUpdate from './Components/StockUpdate/StockUpdate';
+import ManageInventory from './Components/ManageInventory/ManageInventory';
+import ManageItems from './Components/ManageItems/ManageItems';
 function App() {
   return (
     <div  >
@@ -20,12 +23,18 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/logIn' element={<Login></Login>} ></Route>
+        <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/manageitems' element={<ManageItems></ManageItems>}></Route>
         <Route path='/items' element={<RequreAuth>
           <Items></Items>
         </RequreAuth>}></Route>
         <Route path='register' element={<Register></Register>}></Route>
         <Route path='blogs' element={<Blog></Blog>}></Route>
+        <Route path='/inventory/:id' element={<RequreAuth>
+          <StockUpdate></StockUpdate>
+        </RequreAuth>}></Route>
         <Route path='*' element={<Notfound></Notfound>}></Route>
+       
       </Routes>
        
       <Footer></Footer>
