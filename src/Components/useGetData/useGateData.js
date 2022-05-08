@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const useGetData=()=>{
     const [items,setItems]=useState([])
     useEffect(()=>{
-        fetch('https://shielded-spire-43449.herokuapp.com/allproduct')
+        fetch('http://localhost:5000/allproduct')
         .then(rs=>rs.json())
         .then(data=>setItems(data))
 

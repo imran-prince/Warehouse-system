@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useGetData from '../useGetData/useGateData';
 
 const AllProduct = ({ item }) => {
@@ -48,12 +48,15 @@ const AllProduct = ({ item }) => {
                         <Card.Text>
                             <span style={{ color: 'red' }}>Short Description:</span> <small>{description}</small>
                         </Card.Text>
-                        <Button  className='mx-3' variant="primary"> Update</Button>
+                        <Button  className='mx-3' variant="primary"  onClick={()=>navigate(`updateproduct/${_id}`)}> Update</Button>
+                        {/* <Link to={`updateproduct/$(_id)`}>Update</Link> */}
+                       
                         <Button  variant="danger" onClick={()=>deletHadaler(_id)}> Delete</Button>
                     </Card.Body>
 
                 </Card>
-            </Col>
+            </Col> 
+          
 
         </>
     );

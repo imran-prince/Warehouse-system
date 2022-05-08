@@ -10,11 +10,12 @@ import Items from './Components/Items/Items';
 import RequreAuth from './Components/RequreAuth/RequreAuth';
 import Blog from './Components/Blog/Blog';
 import Notfound from './Components/Notfound/Notfound';
- 
+
 import Footer from './Components/Footer/Footer';
 import StockUpdate from './Components/StockUpdate/StockUpdate';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
 import ManageItems from './Components/ManageItems/ManageItems';
+import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
 function App() {
   return (
     <div  >
@@ -23,8 +24,11 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/logIn' element={<Login></Login>} ></Route>
-        <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/manageinventory' element={<RequreAuth>
+          <ManageInventory></ManageInventory>
+        </RequreAuth>}></Route>
         <Route path='/manageitems' element={<ManageItems></ManageItems>}></Route>
+        <Route path='manageitems/updateproduct/:id' element={<UpdateProduct></UpdateProduct>}></Route>
         <Route path='/items' element={<RequreAuth>
           <Items></Items>
         </RequreAuth>}></Route>
@@ -34,9 +38,9 @@ function App() {
           <StockUpdate></StockUpdate>
         </RequreAuth>}></Route>
         <Route path='*' element={<Notfound></Notfound>}></Route>
-       
+
       </Routes>
-       
+
       <Footer></Footer>
 
 

@@ -12,13 +12,11 @@ const StockUpdate = () => {
      
 
     
-        const handelUpdateUser = event => {
-            const quantity = (singleProduct?.quantity) + 1
-           
-           
+        const handelDecreaseQuentaty = () => {
+            const quantity = (singleProduct?.quantity)-1
             const updateQuantity = {quantity}
             // send data to server
-            const url = `https://shielded-spire-43449.herokuapp.com/product/${id}`
+            const url =  `http://localhost:5000/productdecrease/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -30,7 +28,28 @@ const StockUpdate = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log('success', data);
-                    alert('update user adedsuccessfullay')
+                
+                     
+                })
+
+        }
+        const handelIncreaseQuentaty = () => {
+            const quantity = (singleProduct?.quantity)+1
+            const updateQuantity = {quantity}
+            // send data to server
+            const url =  `http://localhost:5000/productdecrease/${id}`
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+
+                },
+                body: JSON.stringify(updateQuantity)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('success', data);
+                
                      
                 })
 
@@ -55,8 +74,8 @@ const StockUpdate = () => {
                         <Card.Text>
                             <span style={{ color: 'red' }}>Short Description:</span> <small>{singleProduct?.description}</small>
                         </Card.Text>
-                        <Button className='mx-5 my-5' variant="primary" onClick={handelUpdateUser}>Delivery</Button>
-                        <Button variant="primary">Re-Stock</Button>
+                        <Button className='mx-5 my-5' variant="primary" onClick={handelDecreaseQuentaty}>Delivery</Button>
+                        <Button variant="primary" onClick={handelIncreaseQuentaty}>Re-Stock</Button>
                     </Card.Body>
 
                 </Card>

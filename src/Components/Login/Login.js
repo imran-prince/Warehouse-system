@@ -3,12 +3,11 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { auth } from '../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Loading from '../Loading/Loading';
-
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import Loading from '../Loading/Loading'
 const Login = () => {
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const location = useLocation()
     const navigate = useNavigate()
     const [signInWithGoogle] = useSignInWithGoogle(auth);
@@ -45,6 +44,16 @@ const Login = () => {
         signInWithGoogle()
 
     }
+    const resetPassword = () => {
+        if (email) {
+            sendPasswordResetEmail(email)
+            toast('sent email')
+        }
+        else{
+            toast("please enter your email address")
+        }
+
+    }
 
     return (
         <>
@@ -65,10 +74,12 @@ const Login = () => {
                     Sign-In
                 </Button>
                 <Link to='/register' className=''>Create New Account</Link>
+                <p>Forgot Password ?<button className='btn btn-outline-none text-primary' onClick={resetPassword}>Reset Password</button></p>
 
             </Form>
             <h2 className='text-center'>------------- Socila log in ----------</h2>
             <button className=' btn   shadow-lg  my-5 w-25 m-auto d-block' onClick={googleSignIn}>Google sign-In  <FcGoogle /></button>
+            <ToastContainer/>
 
 
         </>

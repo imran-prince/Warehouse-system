@@ -21,7 +21,7 @@ const ManageInventory = () => {
         console.log(product)
      
         // send data to server
-        fetch('https://shielded-spire-43449.herokuapp.com/productadd', {
+        fetch('http://localhost:5000/productadd', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
