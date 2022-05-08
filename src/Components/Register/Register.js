@@ -42,7 +42,7 @@ const Register = () => {
         }
         else {
             createUserWithEmailAndPassword(email, password)
-            toast('sent emial varifaction')
+            toast('sent emial varifaction check mail')
         }
        
     }
