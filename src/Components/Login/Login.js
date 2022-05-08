@@ -3,9 +3,10 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { auth } from '../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+ 
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading'
+import { toast, ToastContainer } from 'react-toastify';
 const Login = () => {
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const location = useLocation()
@@ -69,6 +70,10 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" onBlur={passwordHandaler} placeholder="Password" name='password' />
                 </Form.Group>
+                {
+                    user ? <p style={{ color: 'green' }}>Login Successfullay.</p> :
+                        <p style={{ color: "red" }}>{error?.message}</p>
+                }
 
                 <Button variant="primary" type="submit" className='w-50 m-auto d-block'>
                     Sign-In
